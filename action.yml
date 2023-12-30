@@ -1,0 +1,24 @@
+name: "aider-chat-action"
+description: "Easiest way to run Aider in your GitHub Actions workflow"
+inputs:
+  openai_api_key:
+    description: "OpenAI API Key"
+    required: true
+  branch:
+    description: "Branch to run Aider on"
+    required: true
+  aider_args:
+    description: "Space-delimited args to pass to aider (e.g. --yes --message 'Make the dashboard sidebar purple')"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    OPENAI_API_KEY: ${{ inputs.openai_api_key }}
+    FEATURE_REF: ${{ inputs.branch }}
+  args:
+    - ${{ inputs.aider_args }}
+branding:
+  icon: "cpu"
+  color: "white"
