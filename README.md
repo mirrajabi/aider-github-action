@@ -24,18 +24,26 @@ jobs:
         with:
           openai_api_key: ${{ secrets.openai_api_key }}
           branch: ${{ fromJson(steps.create_branch.outputs.result).ref }}
-          aider_args: '--model ${{ inputs.model }} --yes --message "${{ steps.create_prompt.outputs.result }}"'
+          model: ${{ inputs.model }}
+          aider_args: '--yes --message "${{ steps.create_prompt.outputs.result }}"'
 ```
 
 #### Action Inputs
 
 When using the action directly, you can pass the following inputs to it:
 
-| Field Name      | Description                                                   | Required | Type    | Default                  |
-|------------------|---------------------------------------------------------------|----------|---------|--------------------------|
+| Field Name      | Description                                                    | Required  | Type    | Default                  |
+|------------------|---------------------------------------------------------------|-----------|---------|--------------------------|
 | `aider_args`       | Space-delimited args to pass to aider (Example: `"--yes --message 'Make the dashboard sidebar purple'"`) | **true** | string       | -                        |
-| `branch`           | Branch to run Aider on                                         | **true**     | string       | -                        |
-| `openai_api_key`   | OpenAI API Key                                                | **true**     | string       | -                        |
+| `branch`           | Branch to run Aider on                                      | **false** | string  | main                     |
+| `model`            | Model to run Aider with                                     | **false** | string  | -                        |
+| `openai_api_key`   | OpenAI API Key                                              | **false** | string  | -                        |
+| `anthropic_api_key`| Anthropic API Key                                           | **false** | string  | -                        |
+| `gemini_api_key`   | Gemini API Key                                              | **false** | string  | -                        |
+| `groq_api_key`     | Groq API Key                                                | **false** | string  | -                        |
+| `cohere_api_key`   | Cohere API Key                                              | **false** | string  | -                        |
+| `deepseek_api_key` | Deepseek API Key                                            | **false** | string  | -                        |
+| `openrouter_api_key`| OpenRouter API Key                                         | **false** | string  | -                        |
 
 ## Roadmap
 

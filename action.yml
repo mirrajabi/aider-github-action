@@ -3,10 +3,40 @@ description: "Easiest way to run Aider in your GitHub Actions workflow"
 inputs:
   openai_api_key:
     description: "OpenAI API Key"
-    required: true
+    default: ""
+    required: false
+  anthropic_api_key:
+    description: "Anthropic API Key"
+    default: ""
+    required: false
+  gemini_api_key:
+    description: "Gemini API Key"
+    default: ""
+    required: false
+  groq_api_key:
+    description: "Groq API Key"
+    default: ""
+    required: false
+  cohere_api_key:
+    description: "Cohere API Key"
+    default: ""
+    required: false
+  deepseek_api_key:
+    description: "Deepseek API Key"
+    default: ""
+    required: false
+  openrouter_api_key:
+    description: "OpenRouter API Key"
+    default: ""
+    required: false
+  model:
+    description: "Model to use for Aider"
+    default: "gpt-4-1106-preview"
+    required: false
   branch:
     description: "Branch to run Aider on"
-    required: true
+    default: "main"
+    required: false
   aider_args:
     description: "Space-delimited args to pass to aider (e.g. --yes --message 'Make the dashboard sidebar purple')"
     required: true
@@ -16,8 +46,17 @@ runs:
   image: "Dockerfile"
   env:
     OPENAI_API_KEY: ${{ inputs.openai_api_key }}
+    ANTHROPIC_API_KEY: ${{ inputs.anthropic_api_key }}
+    GEMINI_API_KEY: ${{ inputs.gemini_api_key }}
+    GROQ_API_KEY: ${{ inputs.groq_api_key }}
+    COHERE_API_KEY: ${{ inputs.cohere_api_key }}
+    DEEPSEEK_API_KEY: ${{ inputs.deepseek_api_key }}
+    OPENROUTER_API_KEY: ${{ inputs.openrouter_api_key }}
     FEATURE_REF: ${{ inputs.branch }}
+    MODEL: ${{ inputs.model }}
   args:
+    - --model
+    - ${{ inputs.model }}
     - ${{ inputs.aider_args }}
 branding:
   icon: "cpu"
