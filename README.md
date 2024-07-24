@@ -36,7 +36,7 @@ When using the action directly, you can pass the following inputs to it:
 |------------------|---------------------------------------------------------------|-----------|---------|--------------------------|
 | `aider_args`       | Space-delimited args to pass to aider (Example: `"--yes --message 'Make the dashboard sidebar purple'"`) | **true** | string       | -                        |
 | `branch`           | Branch to run Aider on                                      | **false** | string  | main                     |
-| `model`            | Model to run Aider with                                     | **false** | string  | -                        |
+| `model`            | Model to run Aider with. Find available models on [this page](https://aider.chat/docs/llms.html)                                     | **false** | string  | `gpt-4-1106-preview`                        |
 | `openai_api_key`   | OpenAI API Key                                              | **false** | string  | -                        |
 | `anthropic_api_key`| Anthropic API Key                                           | **false** | string  | -                        |
 | `gemini_api_key`   | Gemini API Key                                              | **false** | string  | -                        |
