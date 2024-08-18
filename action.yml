@@ -54,8 +54,8 @@ runs:
     OPENROUTER_API_KEY: ${{ inputs.openrouter_api_key }}
     FEATURE_REF: ${{ inputs.branch }}
     MODEL: ${{ inputs.model }}
-  args:
-    - ${{ inputs.aider_args }}
+    AIDER_ARGS: ${{ inputs.aider_args }}
+
 branding:
   icon: "cpu"
   color: "white"

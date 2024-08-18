@@ -3,9 +3,6 @@
 # Set constants
 WORKDIR="/tmp/repo"
 
-# Get args
-AIDER_ARGS=$1
-
 # Get env vars
 BRANCH_NAME=$(echo $FEATURE_REF | sed 's/refs\/heads\///g')
 
