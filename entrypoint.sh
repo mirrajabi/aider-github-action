@@ -26,7 +26,7 @@ git fetch
 git checkout $BRANCH_NAME
 
 # Run aider command
-eval "aider $AIDER_ARGS"
+eval "aider --model $MODEL $AIDER_ARGS"
 
 # Push changes
 git push -u origin $BRANCH_NAME
