@@ -4,7 +4,7 @@ This action runs [Aider](https://github.com/paul-gauthier/aider) in a container 
 
 ## Usage
 
-### Using Aider Github Workflows
+### Using Aider GitHub Workflows
 
 The easiest and recommended way to use this action is to use the [aider-github-workflows](https://github.com/mirrajabi/aider-github-workflows).
 
@@ -49,7 +49,7 @@ When using the action directly, you can pass the following inputs to it:
 
 - [x] Put it out there
 - [ ] Get it to a point where tagging it as `v1` makes sense.
-- [ ] Investigate the possibilities of turning this into a Github App.
+- [ ] Investigate the possibilities of turning this into a GitHub App.
 
 ## Credits
 
