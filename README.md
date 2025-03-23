@@ -19,7 +19,7 @@ jobs:
   my_job:
     steps:
       - name: Apply changes with Aider
-        uses: mirrajabi/aider-github-action@1.1.0
+        uses: mirrajabi/aider-github-action@v1.1.0
         timeout-minutes: 10 # So that you won't accidentally burn your LLM provider credits!
         with:
           api_key_env_name: OPENAI_API_KEY
