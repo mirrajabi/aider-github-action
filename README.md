@@ -19,13 +19,14 @@ jobs:
   my_job:
     steps:
       - name: Apply changes with Aider
-        uses: mirrajabi/aider-github-action@main
-        timeout-minutes: 10 # So that you won't accidentally burn your OpenAI credits!
+        uses: mirrajabi/aider-github-action@1.1.0
+        timeout-minutes: 10 # So that you won't accidentally burn your LLM provider credits!
         with:
-          openai_api_key: ${{ secrets.openai_api_key }}
+          api_key_env_name: OPENAI_API_KEY
+          api_key_env_value: ${{ secrets.openai_api_key }}
           branch: ${{ fromJson(steps.create_branch.outputs.result).ref }}
           model: ${{ inputs.model }}
-          aider_args: '--yes --message "${{ steps.create_prompt.outputs.result }}"'
+          aider_args: '--yes --message "Do this and that"'
 ```
 
 #### Action Inputs
@@ -36,20 +37,9 @@ When using the action directly, you can pass the following inputs to it:
 |------------------|---------------------------------------------------------------|-----------|---------|--------------------------|
 | `aider_args`       | Space-delimited args to pass to aider (Example: `"--yes --message 'Make the dashboard sidebar purple'"`) | **true** | string       | -                        |
 | `branch`           | Branch to run Aider on                                      | **false** | string  | main                     |
-| `model`            | Model to run Aider with. Find available models on [this page](https://aider.chat/docs/llms.html)                                     | **false** | string  | `gpt-4-1106-preview`                        |
-| `openai_api_key`   | OpenAI API Key                                              | **false** | string  | -                        |
-| `anthropic_api_key`| Anthropic API Key                                           | **false** | string  | -                        |
-| `gemini_api_key`   | Gemini API Key                                              | **false** | string  | -                        |
-| `groq_api_key`     | Groq API Key                                                | **false** | string  | -                        |
-| `cohere_api_key`   | Cohere API Key                                              | **false** | string  | -                        |
-| `deepseek_api_key` | Deepseek API Key                                            | **false** | string  | -                        |
-| `openrouter_api_key`| OpenRouter API Key                                         | **false** | string  | -                        |
-
-## Roadmap
-
-- [x] Put it out there
-- [ ] Get it to a point where tagging it as `v1` makes sense.
-- [ ] Investigate the possibilities of turning this into a Github App.
+| `model`            | Model to run Aider with. Find available models on [this page](https://aider.chat/docs/llms.html)                                     | **true** | string  | -                        |
+| `api_key_env_name`   | "The name of the environment variable. For example, OPENAI_API_KEY, ANTHROPIC_API_KEY, etc. See more info [here](https://aider.chat/docs/llms.html)       | **false** | string  | -                        |
+| `api_key_env_value` | The API Key to use as the value of the `api_key_env_name`   | **false** | string  | -                        |
 
 ## Credits
 
